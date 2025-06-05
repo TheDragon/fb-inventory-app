@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, Button, StyleSheet, Alert, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
-export default function ManualEntryScreen({ navigation }) {
+export default function ManualEntryScreen({ navigation, route }) {
   const [productId, setProductId] = useState("");
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [description, setDescription] = useState("");
-  const [availability, setAvailability] = useState("Yes");
+  const [name, setName] = useState(route.params?.name || "");
+  const [price, setPrice] = useState(route.params?.price || "");
+  const [quantity, setQuantity] = useState(route.params?.quantity || "");
+  const [description, setDescription] = useState(route.params?.description || "");
+  const [availability, setAvailability] = useState(route.params?.availability || "Yes");
 
   useEffect(() => {
     const randomId = `PRD-${Math.random().toString(36).substring(2, 6).toUpperCase()}${Math.floor(100 + Math.random() * 900)}`;
