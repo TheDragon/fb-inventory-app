@@ -13,7 +13,7 @@ export default function ManualEntryScreen({ navigation, route }) {
   useEffect(() => {
     const randomId = `PRD-${Math.random().toString(36).substring(2, 6).toUpperCase()}${Math.floor(100 + Math.random() * 900)}`;
     setProductId(randomId);
-  }, []);
+  }, []);   
 
   const handleNext = () => {
     if (!productId || !name || !price || !quantity) {
